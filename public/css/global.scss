@@ -1,7 +1,60 @@
-div {
-    color: red;    
+@mixin light {
+    --color-theme-bg: #f2f3f5;
+    --color-word: #000;
 }
+
+@mixin dark {
+    --color-theme-bg: #131416;
+    --color-word: #fff;
+}
+
+:root {
+    @include light();
+    &.dark {
+        @include dark();
+    }
+}
+
+@media (prefers-color-scheme: light) {
+    :root {
+        @include light();
+
+        &.dark {
+            @include dark();
+        }
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        @include dark();
+
+        &.light {
+            @include light();
+        }
+    }
+}
+
+body {
+    margin: 0 auto;
+    padding: 0;
+    font-size: 14;
+    color: var(--color-word);
+    background-color: var(--color-theme-bg);
+    overflow-y: scroll;
+    transition: c;
+}
+
+header {
+    color: var(--color-word);
+}
+
+footer {
+    color: var(--color-word);
+}
+
 h2 {
     font-size: 30px;
     color: blue;
+    background: url('../images/2.png');
 }
