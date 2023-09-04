@@ -149,6 +149,6 @@ module.exports = (webpackEnv = 'development') => {
                 new MiniCssExtractPlugin({
                     filename: "css/[name].[contenthash:8].css",
                 }),
-        ].filter(Boolean)
+        ].filter(Boolean)s
     }
 }
